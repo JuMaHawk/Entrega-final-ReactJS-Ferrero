@@ -1,40 +1,38 @@
 import React from 'react'
-import {CardBody, Image, Stack, Heading, Text, Divider, CardFooter, ButtonGroup, Card, Button } from '@chakra-ui/react'
-import ItemCount from './ItemCount'
+import ItemDetail from './itemDetail'
 import { useParams } from 'react-router-dom'
 
 
-const itemDetailContainer = ({titulo, descripcion, precio}) => {
- const {id} = useParams()
- console.log(id)
- 
+
+const itemDetailContainer = () => {
+
+  const { id } = useParams()
+  console.log(id)
+
+  const productos = [
+    { id: 1, titulo: "Producto A", descripcion: "Descripcion de producto A", categoria: "1", precio: 100 },
+    { id: 2, titulo: "Producto B", descripcion: "Descripcion de producto B", categoria: "2", precio: 200 },
+    { id: 3, titulo: "Producto C", descripcion: "Descripcion de producto C", categoria: "1", precio: 300 },
+    { id: 4, titulo: "Producto D", descripcion: "Descripcion de producto D", categoria: "2", precio: 400 },
+    { id: 5, titulo: "Producto E", descripcion: "Descripcion de producto E", categoria: "1", precio: 500 },
+    { id: 6, titulo: "Producto F", descripcion: "Descripcion de producto F", categoria: "2", precio: 600 },
+    { id: 7, titulo: "Producto G", descripcion: "Descripcion de producto G", categoria: "1", precio: 700 },
+    { id: 8, titulo: "Producto H", descripcion: "Descripcion de producto H", categoria: "2", precio: 800 },
+    { id: 9, titulo: "Producto I", descripcion: "Descripcion de producto I", categoria: "1", precio: 900 },
+    { id: 10, titulo: "Producto J", descripcion: "Descripcion de producto J", categoria: "2", precio: 1000 }
+  ]
+
+  
+  const productoFiltrado = productos.find((producto)=> producto.id == id )
+  console.log(productoFiltrado)
   return (
     <div>
-            <Card maxW='sm'>
-                <CardBody>
-                    <Image
-                        src=''
-                        alt='Img'
-                        borderRadius='lg'
-                    />
-                    <Stack mt='6' spacing='3'>
-                        <Heading size='md'>{titulo}</Heading>
-                        <Text>
-                            {descripcion}
-                        </Text>
-                        <Text color='blue.600' fontSize='2xl'>
-                            ${precio}
-                        </Text>
-                    </Stack>
-                </CardBody>
-                <Divider />
-                <CardFooter>
-                    <ButtonGroup spacing='2'>
-                        <ItemCount/>
-                    </ButtonGroup>
-                </CardFooter>
-            </Card>
-        </div>
+      
+       
+            <ItemDetail
+              producto = {productoFiltrado}
+            />
+    </div>
   )
 }
 

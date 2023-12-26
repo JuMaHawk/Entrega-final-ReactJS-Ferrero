@@ -8,7 +8,6 @@ const ItemListContainer = () => {
 
   const { id } = useParams()
 
-
   const productos = [
     { id: 1, titulo: "Producto A", descripcion: "Descripcion de producto A", categoria: "1", precio: 100 },
     { id: 2, titulo: "Producto B", descripcion: "Descripcion de producto B", categoria: "2", precio: 200 },
@@ -25,8 +24,9 @@ const ItemListContainer = () => {
   const productosFiltrados = productos.filter((producto) => producto.categoria == id)
 
   return (
+    
     <div>
-      {id ? <ItemList productos={productosFiltrados} /> : <ItemList productos={productos} />}
+      {id ? <ItemList productos = {productosFiltrados} /> : <ItemList productos={productos} />}
     </div>
   )
 }

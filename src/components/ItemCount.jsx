@@ -3,6 +3,9 @@ import { Button } from '@chakra-ui/react'
 
 const ItemCount = () => {
 
+    
+    const [contador, setContador] = useState(0)
+
     const sumar = ()  => {
         if (contador < 10){
             setContador (contador + 1)
@@ -17,7 +20,6 @@ const ItemCount = () => {
 
     
 
-    const [contador, setContador] = useState(0)
 
 
     return (

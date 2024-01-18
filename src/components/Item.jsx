@@ -1,17 +1,24 @@
 import React from 'react'
-import { CardBody, Stack, Heading, Divider, CardFooter, ButtonGroup, Card, Button } from '@chakra-ui/react'
+import { CardBody, Stack, Heading, Divider, CardFooter, ButtonGroup, Card, Button, Image } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
 
 
-const Item = ({ titulo, id }) => {
+const Item = ({ modelo, id, imagen }) => {
+
 
     return (
 
         <div>
             <Card maxW='sm'>
+                <Image
+                    src={imagen}
+                    alt='Green double couch with wooden legs'
+                    borderRadius='lg'
+                />
+
                 <CardBody>
                     <Stack mt='6' spacing='3'>
-                        <Heading size='md'>{titulo}</Heading>
+                        <Heading size='md'>{modelo}</Heading>
                     </Stack>
                 </CardBody>
                 <Divider />

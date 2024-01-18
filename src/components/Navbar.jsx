@@ -21,11 +21,11 @@ const Navbar = () => {
                         Categorias
                     </MenuButton>
                     <MenuList bg="green.300">
-                        <Link to = '/categoria/1'>
-                            <MenuItem bg="black">Categoria 1</MenuItem>
+                        <Link to = '/categoria/COMP'>
+                            <MenuItem bg="black">Categoria COMP</MenuItem>
                         </Link>
-                        <Link to = '/categoria/2'>
-                        <MenuItem bg="black">Categoria 2</MenuItem>
+                        <Link to = '/categoria/ELITE'>
+                        <MenuItem bg="black">Categoria ELITE</MenuItem>
                         </Link>
                     </MenuList>
                 </Menu>

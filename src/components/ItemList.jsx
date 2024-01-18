@@ -2,23 +2,23 @@ import React from 'react'
 import Item from './Item'
 
 
-const ItemList = ({ productos }) => {
+const ItemList = ({ products }) => {
     return (
         <div>
             {
-                productos.map((p) => {
+                products.map((p) => {
                     return (
-                        <>
+                        <div key={p.id}>
                             <Item
                                 key={p.id}
-                                titulo={p.titulo}
-                                descripcion={p.descripcion}
-                                precio={p.precio}
+                                modelo={p.modelo}
+                                categoria={p.categoria}
+                                imagen={p.img}
                                 id={p.id}
                             />
 
 
-                        </>
+                        </div>
                     )
                 })
             }

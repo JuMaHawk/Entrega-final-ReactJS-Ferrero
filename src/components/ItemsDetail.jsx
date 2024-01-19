@@ -3,36 +3,39 @@ import { CardBody, Stack, Heading, Text, Divider, CardFooter, ButtonGroup, Card 
 import ItemCount from './ItemCount'
 
 
-const itemDetail = ({producto}) => {
-    console.log(producto)
-
-    
+const ItemsDetail = ({categoria, descripcion, modelo }) => {
 
 
     return (
         <div>
-            {/* <Card maxW='sm'>
+            <Card maxW='sm'>
                 <CardBody>
-                    
+
                     <Stack mt='6' spacing='3'>
-                        <Heading size='md'>{producto.modelo}</Heading>
+                        
+                        <Heading size='md'>
+                            {modelo} HOLA
+                        </Heading>
+                        
                         <Text>
-                            {producto.descripcion}
+                            {descripcion}
                         </Text>
+                        
                         <Text color='blue.600' fontSize='2xl'>
-                            ${producto.categoria}
+                            {categoria}
                         </Text>
+
                     </Stack>
                 </CardBody>
-                <Divider />
+                    <Divider />
                 <CardFooter>
                     <ButtonGroup spacing='2'>
                         <ItemCount />
                     </ButtonGroup>
                 </CardFooter>
-            </Card> */}
+            </Card>
         </div>
     )
 }
 
-export default itemDetail
+export default ItemsDetail

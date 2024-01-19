@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { collection, doc, getDoc, getFirestore } from 'firebase/firestore'
+import { doc, getDoc, getFirestore } from 'firebase/firestore'
 import { useParams } from 'react-router-dom'
 
 const Document = () => {

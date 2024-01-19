@@ -12,7 +12,7 @@ const Item = ({ modelo, id, imagen }) => {
             <Card maxW='sm'>
                 <Image
                     src={imagen}
-                    alt='Green double couch with wooden legs'
+                    alt='Bicicleta Zenith '
                     borderRadius='lg'
                 />
 

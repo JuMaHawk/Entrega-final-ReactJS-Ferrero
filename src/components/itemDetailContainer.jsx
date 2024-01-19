@@ -1,59 +1,40 @@
 import React from 'react'
-import ItemDetail from './ItemDetail.jsx'
+import ItemsDetail from './ItemsDetail.jsx'
 import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import {collection, getDocs, getFirestore } from 'firebase/firestore'
 
-const itemDetailContainer = () => {
+
+const ItemDetailContainer = () => {
+
+    const {id} = useParams()
+    console.log(id)
+
+    const [data, setData] = useState([]);
+  
+    useEffect(() => {
+        const db = getFirestore();
+  
+        const bikesCollection = collection (db, "bicicletas");
+        getDocs (bikesCollection).then((querySnapshot) => {
+        const bikes = querySnapshot.docs.map((doc) => ({...doc.data()}));
+        setData(bikes);
+        });
+    }, []);
+
+  console.log(data)
 
 
-  const { id } = useParams()
-  const [product, setProduct] = useState([])
+    const productoFiltrado = data.find((producto)=> producto.id == id )
+    console.log(productoFiltrado)
 
-  useEffect(() => {
-
-    const db = getFirestore()
-    const itemsCollection = collection(db, "bicicletas")
-
-    getDocs(itemsCollection).then((snapshot) => {
-        const docs = snapshot.docs.map((doc) => doc.data())
-        setProduct(docs)
-    })
-
-}, [])
- console.log(product)
-
-  const productoFiltrado = product.find((producto)=> producto.id == id )
-  console.log(productoFiltrado)
-
-// console.log(productoFiltrado)
-  return (
-        
-      <div>       
-        <ItemDetail
-            producto = {productoFiltrado}
-        />
-      </div>
+    return (
+        <ItemsDetail ROBERTO = {productoFiltrado}/>
     )
+};
 
 
-
-
-
-
-  // return (
-  //     <div>
-  //         {/* Producto:{product.nombre}
-  //         Precio: {product.precio} */}
-  //     </div>
-  // )
-
-
-
-
-}
-
-export default itemDetailContainer
+export default ItemDetailContainer
 
 
 // const itemDetailContainer = () => {

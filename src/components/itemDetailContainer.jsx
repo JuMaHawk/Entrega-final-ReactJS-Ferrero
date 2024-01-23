@@ -2,34 +2,32 @@ import React from 'react'
 import ItemsDetail from './ItemsDetail.jsx'
 import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import {collection, getDocs, getFirestore } from 'firebase/firestore'
+import { getFirestore, getDoc, doc} from 'firebase/firestore'
 
 
 const ItemDetailContainer = () => {
-
+    const [item, setItem] = useState (null);
     const {id} = useParams()
-    console.log(id)
 
-    const [data, setData] = useState([]);
   
     useEffect(() => {
         const db = getFirestore();
-  
-        const bikesCollection = collection (db, "bicicletas");
-        getDocs (bikesCollection).then((querySnapshot) => {
-        const bikes = querySnapshot.docs.map((doc) => ({...doc.data()}));
-        setData(bikes);
-        });
-    }, []);
 
-  console.log(data)
-
-
-    const productoFiltrado = data.find((producto)=> producto.id == id )
-    console.log(productoFiltrado)
-
+        const docBicicletas = doc (db, "bicicletas", id);
+        getDoc (docBicicletas)
+        .then((snapshot) => {
+            setItem(
+                {...snapshot.data(), id: snapshot.id}
+            )
+        })
+    }, [id])
+    
     return (
-        <ItemsDetail ROBERTO = {productoFiltrado}/>
+        
+        <div>
+            {item && <ItemsDetail item = {item}/>}
+        
+        </div>
     )
 };
 

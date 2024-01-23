@@ -22,7 +22,7 @@ const App = () => {
           <Route path='/item/:id' element={<ItemDetailContainer />} />
           <Route path='/carrito' element={<CartWidget />} />
         </Routes>
-        </ShoppingCartContext>
+      </ShoppingCartContext>
     </BrowserRouter>
   )
 }

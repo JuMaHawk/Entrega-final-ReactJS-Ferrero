@@ -1,7 +1,7 @@
 import {useState} from 'react'
 import { Button } from '@chakra-ui/react'
 
-const ItemCount = () => {
+const ItemCount = ({modelo, precio, stock, item, img}) => {
 
     
     const [contador, setContador] = useState(0)
@@ -24,14 +24,17 @@ const ItemCount = () => {
 
     return (
         <div>
-            <Button colorScheme='purple' size='xs'>
-                Agregar al carrito {contador}
-            </Button>
             <Button colorScheme='red' size='xs' onClick = {restar}>
                 -
             </Button>
+            <p>{contador}</p>
             <Button colorScheme='whatsapp' size='xs' onClick = {sumar}>
                 +
+            </Button>
+            
+            <hr/>
+            <Button colorScheme='purple' size='xs'>
+                Agregar al carrito
             </Button>
         </div>
     )

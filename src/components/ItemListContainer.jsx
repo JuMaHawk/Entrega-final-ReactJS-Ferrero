@@ -27,10 +27,7 @@ const ItemListContainer = () => {
   }, [])
   
 
-  const productosFiltrados = products.filter((producto) => producto.categoria == id)
-
- 
-  
+  const productosFiltrados = products.filter((producto) => producto.categoria == id)  
 
 
   return (

@@ -1,10 +1,10 @@
 import { useState } from 'react'
-import { Button } from '@chakra-ui/react'
+import { Button, Center } from '@chakra-ui/react'
 import { useContext } from 'react'
 import { CartContext } from '../context/MarketCartContext'
 
 
-const ItemCount = ({ modelo, precio, stock, item, img }) => {
+const ItemCount = ({ item }) => {
 
     const { carrito, setCarrito } = useContext(CartContext)
     const [cantidad, setCantidad] = useState(0)
@@ -32,29 +32,30 @@ const ItemCount = ({ modelo, precio, stock, item, img }) => {
         setCarrito(newCarrito)
     }
 
-    const bikesEnCarrito = () => {
-        return ( 
-            carrito.reduce((acc, prod)=> acc + prod.cantidad, 0)
-        )
-    }
-    
+    // const bikesEnCarrito = () => {
+    //     return ( 
+    //         carrito.reduce((acc, prod)=> acc + prod.cantidad, 0)
+    //     )
+    // }
+
     return (
-        <div>
-            <Button colorScheme='red' size='xs' onClick={restar}>
-                -
-            </Button>
+        <div className='botones'>
+            <div className='botones-sumarrestar'>
+                <Button colorScheme='red' size='xs' onClick={restar}>
+                    -
+                </Button>
 
-            <p>{cantidad}</p>
+                <p>{cantidad}</p>
 
-            <Button colorScheme='whatsapp' size='xs' onClick={sumar}>
-                +
-            </Button>
-
-            <hr />
-
-            <Button colorScheme='purple' size='xs' onClick={agregar}>
-                Agregar al carrito
-            </Button>
+                <Button colorScheme='whatsapp' size='xs' onClick={sumar}>
+                    +
+                </Button>
+            </div>
+            <div className='botones-aregar'>
+                <Button className='boton-agregar' colorScheme='purple' size='xs' onClick={agregar}>
+                    Agregar al carrito
+                </Button>
+            </div>
         </div>
     )
 }

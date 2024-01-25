@@ -1,0 +1,49 @@
+ /* .paletaDeColores{
+    #12A773
+    #F2B56B
+    #F26D3D
+    #A65341
+    #F2F2F2
+ */
+
+.fondoBody{
+    background-color: #eee8aa;
+}
+
+.encabezado{
+    background-color: #126973;
+    width: 20%;
+    text-align: center;
+}
+
+.encabezado th{
+    text-align: center;
+    color: #F2B56B;
+}
+
+.filasTabla{
+    background-color: red;
+}
+
+.filasTabla td{
+    background-color: #A65341;
+    color: white;
+    text-align: start;
+    width: 20%;
+}
+
+.botones{
+    display: flex;
+    flex-direction: row;
+}
+
+.botones-sumarrestar{
+    display: flex;
+    justify-content: center;
+}
+
+/* .botones-agregar{
+    display:block;
+} */
+
+

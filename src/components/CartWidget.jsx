@@ -1,15 +1,17 @@
 import { useContext } from "react"
 import { CartContext } from "../context/MarketCartContext"
-import { Link } from 'react-router-dom'
+import { Circle } from "@chakra-ui/react"
 
 const CartWidget = () => {
 
-  const {bikesEnCarrito} = useContext(CartContext)
-    return (
-      <div>
+  const { bikesEnCarrito } = useContext(CartContext)
+  return (
+    <div>
+      <Circle size='30px' bg='white' color='black'>
         <span> {bikesEnCarrito()} </span>
-      </div>
-    )
-  }
-  
-  export default CartWidget
+      </Circle>
+    </div>
+  )
+}
+
+export default CartWidget

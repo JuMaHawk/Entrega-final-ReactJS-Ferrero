@@ -1,9 +1,8 @@
 import { useContext } from "react"
 import { CartContext } from "../context/MarketCartContext"
-import { Button, Divider } from "@chakra-ui/react"
+import { Button, Center, Table, TableContainer, Tbody, Th, Thead, Tr, Td, Tfoot, Container } from "@chakra-ui/react"
 import { Link } from "react-router-dom"
-
-
+import '../CSS/style.CSS'
 
 const Cart = () => {
 
@@ -11,30 +10,62 @@ const Cart = () => {
 
   return (
     <div>
-      {
-        carrito.map((p) => (
-          <div key={p.id}>
-            <Divider />
-            <h2>{p.modelo}{p.categoria}</h2>
-            <h3>{p.categoria}</h3>
-            <h4>Precio x unidad: ${p.precio}</h4>
-            <h4>Precio total: ${p.precio * p.cantidad}</h4>
-            <h5>Cantidad: {p.cantidad}</h5>
-            <Divider />
-          </div>
-        ))
-      }
-      {
-        carrito.length > 0 ?
-          <>
-            <h2>Precio Total: ${precioTotal()}</h2>
-            <Button onClick={limpiarCarrito}>Limpiar</Button>
-            <Link to='/checkout'>
-              <Button>Finalizar compra</Button>
-            </Link>
-          </> :
-          <h2>El carrito esta vacio</h2>
-      }
+      <h1>RESUMEN DE SU COMPRA</h1>
+      <Container maxW='auto' mt= "5%">
+        <Table size='xl'>
+          <Thead>
+            <Tr className="encabezado">
+              <Th>Modelo</Th>
+              <Th >Categoria</Th>
+              <Th >Unidades</Th>
+              <Th >Precio x Und.</Th>
+              <Th >Sub Total</Th>
+            </Tr>
+          </Thead>
+        </Table>
+        {
+          carrito.map((p) => (
+            <div key={p.id}>
+              <TableContainer>
+                <Table size='sm'>
+                  <Tbody>
+                    <Tr className="filasTabla">
+                      <Td>{p.modelo}</Td>
+                      <Td>{p.categoria}</Td>
+                      <Td >{p.cantidad}</Td>
+                      <Td >$ {p.precio}</Td>
+                      <Td >$ {p.precio * p.cantidad}</Td>
+                    </Tr>
+                  </Tbody>
+                </Table>
+
+              </TableContainer>
+            </div>
+          ))
+        }
+        <Table>
+          <Tfoot>
+            <Tr bg="gray">
+              <Th>Precio Total $</Th>
+              <Th isNumeric>${precioTotal()}</Th>
+            </Tr>
+          </Tfoot>
+        </Table>
+
+
+        {
+          carrito.length > 0 ?
+            <>
+              <Button onClick={limpiarCarrito}>Limpiar</Button>
+              <Link to='/checkout'>
+                <Button>Finalizar compra</Button>
+              </Link>
+            </> :
+            <Center>
+              <h2>El carrito esta vacio</h2>
+            </Center>
+        }
+      </Container>
     </div>
   )
 }

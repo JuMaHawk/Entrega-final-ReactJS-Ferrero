@@ -2,6 +2,7 @@ import ItemList from "./ItemList.jsx"
 import { useParams } from "react-router-dom"
 import { useEffect, useState } from 'react'
 import { collection, getDocs, getFirestore } from "firebase/firestore"
+import Loader from "./Loader.jsx"
 
 
 const ItemListContainer = () => {
@@ -10,6 +11,7 @@ const ItemListContainer = () => {
 
   const [products, setProducts] = useState([])
 
+  const [loanding, setLoanding] = useState(true)
 
 
   useEffect(() => {
@@ -24,6 +26,9 @@ const ItemListContainer = () => {
           })
         )
       })
+      .finally(() => {
+        setLoanding(false)
+      })
   }, [])
 
 
@@ -32,13 +37,16 @@ const ItemListContainer = () => {
 
   return (
     <div>
-      {id ? <ItemList products={productosFiltrados} /> : <ItemList products={products} />}
+      {loanding ? (<Loader />) :
+        <div>
+          {id ? <ItemList products={productosFiltrados} /> : <ItemList products={products} />}
+        </div>
+      }
     </div>
   )
 }
 
 export default ItemListContainer
-
 
 
 

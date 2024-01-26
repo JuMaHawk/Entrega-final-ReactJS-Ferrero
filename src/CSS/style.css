@@ -42,8 +42,12 @@
     justify-content: center;
 }
 
-/* .botones-agregar{
-    display:block;
-} */
+.tituloLoader{
+    color:red;
+    font-size: 50px;
+}
 
-
+.subTituloLoader{
+    color: gray;
+    font-size: 25px;
+}

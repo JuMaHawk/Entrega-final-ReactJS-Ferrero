@@ -58,7 +58,7 @@ const Cart = () => {
           carrito.length > 0 ?
             <>
               <Button onClick={limpiarCarrito}>Limpiar</Button>
-              <Link to='/checkout'>
+              <Link to='/form'>
                 <Button>Finalizar compra</Button>
               </Link>
             </> :

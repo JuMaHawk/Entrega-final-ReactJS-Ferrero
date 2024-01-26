@@ -4,7 +4,7 @@ import { Button } from '@chakra-ui/react'
 import { useForm } from 'react-hook-form'
 import { addDoc, collection, getFirestore } from 'firebase/firestore'
 
-const CheckOut = () => {
+const Form = () => {
 
     const [pedidoId, setPedidoId] = useState("");
     const { carrito, precioTotal, limpiarCarrito } = useContext(CartContext)
@@ -53,4 +53,4 @@ const CheckOut = () => {
     )
 }
 
-export default CheckOut
+export default Form

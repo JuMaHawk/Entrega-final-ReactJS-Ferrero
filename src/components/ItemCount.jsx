@@ -32,11 +32,6 @@ const ItemCount = ({ item }) => {
         setCarrito(newCarrito)
     }
 
-    // const bikesEnCarrito = () => {
-    //     return ( 
-    //         carrito.reduce((acc, prod)=> acc + prod.cantidad, 0)
-    //     )
-    // }
 
     return (
         <div className='botones'>

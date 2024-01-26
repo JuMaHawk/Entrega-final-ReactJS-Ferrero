@@ -17,7 +17,6 @@ const CheckOut = () => {
             productos: carrito,
             total: precioTotal()
         }
-        console.log(pedido)
         const db = getFirestore()
         const pedidosRef = collection(db, "pedidos")
         addDoc(pedidosRef, pedido)

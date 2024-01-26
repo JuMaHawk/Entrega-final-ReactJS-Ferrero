@@ -8,6 +8,7 @@ const Cart = () => {
 
   const { carrito, precioTotal, limpiarCarrito } = useContext(CartContext)
 
+  
   return (
     <div>
       <h1>RESUMEN DE SU COMPRA</h1>
